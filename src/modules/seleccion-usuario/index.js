@@ -16,28 +16,30 @@ function Register() {
 
   return (
     <View style={styles.container}>
+      {/* Opción Mascotero */}
       <TouchableOpacity 
         onPress={() => handleClick("mascotero")}
-        style={[styles.optionContainer, { paddingRight: '8rem' }]}
+        style={styles.optionContainer}
       >
         <Image source={puntitosMascotero} style={styles.puntitosMascotero} />
         <View style={styles.innerContainer}>
-          <View style={[styles.tickContainer, { shadowOffset: { width: 3, height: 5 }, shadowRadius: 10 }]}>
+          <View style={styles.tickContainer}>
             <Image source={tickMascotero} style={styles.tickImage} />
           </View>
           <Text style={styles.tituloMascotero}>Mascotero</Text>
         </View>
       </TouchableOpacity>
 
+      {/* Opción Protectora */}
       <TouchableOpacity 
         onPress={() => navigation.navigate("Protective")}
-        style={[styles.optionContainer, { paddingLeft: '8rem' }]}
+        style={styles.optionContainer}
       >
         <View style={styles.innerContainer}>
-          <View style={[styles.tickContainer, { shadowOffset: { width: 3, height: 5 }, shadowRadius: 14 }]}>
+          <View style={styles.tickContainer2}>
             <Image source={tickProtectora} style={styles.tickImage} />
           </View>
-          <Text style={styles.tituloProtectora}>Protectora</Text>
+          <Text style={styles.tituloMascotero}>Protectora</Text>
         </View>
         <Image source={puntitosProtectora} style={styles.puntitosProtectora} />
       </TouchableOpacity>

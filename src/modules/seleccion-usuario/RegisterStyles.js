@@ -5,47 +5,75 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 40, // Aumenta espacio vertical para centrar mejor las opciones
   },
   optionContainer: {
-    width: '100%',
+    width: '80%', // Ajusta el ancho para que las opciones no ocupen toda la pantalla
     alignItems: 'center',
-    marginBottom: 20,
+    marginVertical: 10, // Más separación entre las opciones
+    position: 'relative', // Necesario para posicionar los puntitos
   },
   innerContainer: {
     alignItems: 'center',
   },
   tickContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 120,
+    height: 120,
+    borderRadius: 60, // Ajustado al nuevo tamaño del círculo
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
     shadowColor: 'rgba(0, 0, 0, 0.24)',
-    shadowOpacity: 0.8,
+    shadowOffset: { width: 3, height: 5 },
+    shadowOpacity: 0.5,
     shadowRadius: 10,
     elevation: 5,
+    marginBottom: 15, // Espacio entre el círculo y el texto
+  },
+  tickContainer2: {
+    width: 120,
+    height: 120,
+    borderRadius: 60, // Ajustado al nuevo tamaño del círculo
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'orange',
+    shadowColor: 'rgba(0, 0, 0, 0.24)',
+    shadowOffset: { width: 3, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 5,
+    marginBottom: 15, // Espacio entre el círculo y el texto
   },
   tickImage: {
-    width: 83,
-    height: 83,
+    width: 90,
+    height: 90,
+    resizeMode: 'contain', // Ajuste para mantener la proporción del ícono
   },
   puntitosMascotero: {
-    width: 100,
-    height: 100,
-    marginBottom: 10,
+    position: 'absolute',
+    top: -50, // Mejor alineación hacia arriba
+    left: 90, // Ajuste a la izquierda
+    width: 175,
+    height: 160,
   },
   puntitosProtectora: {
-    width: 100,
-    height: 100,
-    marginTop: 10,
+    position: 'absolute',
+    bottom: -50, // Mejor alineación hacia abajo
+    left: 50, // Ajuste a la derecha
+    width: 175,
+    height: 160,
   },
   tituloMascotero: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '400',
+    color: 'black', 
+    marginBottom: "10px",
   },
   tituloProtectora: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '400',
+    color: 'black', // Color similar al del mockup
+    marginBottom: "10px",
+    marginRight: "20px",
   },
 });
