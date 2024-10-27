@@ -112,7 +112,7 @@ function Login() {
 
             <TouchableOpacity
               style={styles.button}
-              onPress={() => navigation.navigate('Register')}
+              onPress={() => navigation.navigate('UserSelect')}
             >
               <Text style={styles.buttonText}>Crear cuenta</Text>
             </TouchableOpacity>

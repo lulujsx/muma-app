@@ -5,9 +5,9 @@ import tickMascotero from '../../../assets/Icons/tickMascotero.png';
 import tickProtectora from '../../../assets/Icons/tickProtectora.png';  
 import puntitosMascotero from '../../../assets/Icons/puntitosMascotero.png';  
 import puntitosProtectora from '../../../assets/Icons/puntitosProtectora.png';  
-import styles from './RegisterStyles';  
+import styles from './UserSelectStyles';  
 
-function Register() {
+function UserSelect() {
   const navigation = useNavigation();
 
   const handleClick = (type) => {
@@ -32,7 +32,7 @@ function Register() {
 
       {/* Opción Protectora */}
       <TouchableOpacity 
-        onPress={() => navigation.navigate("Protective")}
+        onPress={() => navigation.navigate("protectora")}
         style={styles.optionContainer}
       >
         <View style={styles.innerContainer}>
@@ -47,4 +47,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default UserSelect;
