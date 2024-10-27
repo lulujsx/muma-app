@@ -5,13 +5,13 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 40, // Aumenta espacio vertical para centrar mejor las opciones
+    paddingVertical: 40, 
   },
   optionContainer: {
-    width: '80%', // Ajusta el ancho para que las opciones no ocupen toda la pantalla
+    width: '80%', 
     alignItems: 'center',
-    marginVertical: 10, // Más separación entre las opciones
-    position: 'relative', // Necesario para posicionar los puntitos
+    marginVertical: 10, 
+    position: 'relative', 
   },
   innerContainer: {
     alignItems: 'center',
@@ -19,7 +19,7 @@ export default StyleSheet.create({
   tickContainer: {
     width: 120,
     height: 120,
-    borderRadius: 60, // Ajustado al nuevo tamaño del círculo
+    borderRadius: 60, 
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
@@ -28,12 +28,12 @@ export default StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
     elevation: 5,
-    marginBottom: 15, // Espacio entre el círculo y el texto
+    marginBottom: 15, 
   },
   tickContainer2: {
     width: 120,
     height: 120,
-    borderRadius: 60, // Ajustado al nuevo tamaño del círculo
+    borderRadius: 60, 
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'orange',
@@ -42,24 +42,24 @@ export default StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 10,
     elevation: 5,
-    marginBottom: 15, // Espacio entre el círculo y el texto
+    marginBottom: 15, 
   },
   tickImage: {
     width: 90,
     height: 90,
-    resizeMode: 'contain', // Ajuste para mantener la proporción del ícono
+    resizeMode: 'contain',
   },
   puntitosMascotero: {
     position: 'absolute',
-    top: -50, // Mejor alineación hacia arriba
-    left: 90, // Ajuste a la izquierda
+    top: -50, 
+    left: 90, 
     width: 175,
     height: 160,
   },
   puntitosProtectora: {
     position: 'absolute',
-    bottom: -50, // Mejor alineación hacia abajo
-    left: 50, // Ajuste a la derecha
+    bottom: -50, 
+    left: 50, 
     width: 175,
     height: 160,
   },
@@ -72,7 +72,7 @@ export default StyleSheet.create({
   tituloProtectora: {
     fontSize: 18,
     fontWeight: '400',
-    color: 'black', // Color similar al del mockup
+    color: 'black',
     marginBottom: "10px",
     marginRight: "20px",
   },
