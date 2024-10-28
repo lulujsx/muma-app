@@ -18,8 +18,8 @@ function UserSelect() {
     <View style={styles.container}>
       {/* Opción Mascotero */}
       <TouchableOpacity 
-        onPress={() => handleClick("mascotero")}
         style={styles.optionContainer}
+        onPress={() => navigation.navigate("MascoteroRegister")}
       >
         <Image source={puntitosMascotero} style={styles.puntitosMascotero} />
         <View style={styles.innerContainer}>
