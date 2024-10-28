@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import UserSelect from './src/modules/seleccion-usuario';
+import UserSelect from './src/modules/seleccion-usuario';         
+import ProtectiveRegister from './src/modules/registro-protectora';         
 import Login from './src/modules/login';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,6 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister} />
         <Stack.Screen name="UserSelect" component={UserSelect} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -32,8 +32,8 @@ function UserSelect() {
 
       {/* Opción Protectora */}
       <TouchableOpacity 
-        onPress={() => navigation.navigate("protectora")}
         style={styles.optionContainer}
+        onPress={() => navigation.navigate("ProtectiveRegister")}
       >
         <View style={styles.innerContainer}>
           <View style={styles.tickContainer2}>
