@@ -131,23 +131,23 @@ const ProtectiveRegister = () => {
           />
         </View>
 
-        {/* Número, Piso, Departamento */}
-        <View style={styles.inputGroup}>
+        {/* Número y Piso en una fila */}
+        <View style={styles.row}>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.halfInput1]}
             placeholder="Número"
             value={formData.numero}
             onChangeText={(text) => handleChange("numero", text)}
           />
-        </View>
-        <View style={styles.inputGroup}>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.halfInput2]}
             placeholder="Piso"
             value={formData.piso}
             onChangeText={(text) => handleChange("piso", text)}
           />
         </View>
+
+        {/* Departamento */}
         <View style={styles.inputGroup}>
           <TextInput
             style={styles.input}

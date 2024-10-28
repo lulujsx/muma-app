@@ -3,6 +3,31 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { width } = Dimensions.get('window'); // Obtener ancho de la pantalla para ajustes responsivos.
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  halfInput1: {
+    flex: 1,
+    marginRight: 5,
+  },
+  halfInput2: {
+    flex: 1,
+    marginLeft: 5,
+  },
+  inputGroup: {
+    marginBottom: 15,
+  },
+  input: {
+    backgroundColor: '#F5F5F5',
+    borderRadius: 8,
+    padding: 10,
+    fontSize: 16,
+  },
+  scrollView: {
+    padding: 20,
+  },
   container: {
     flex: 1,
     paddingHorizontal: 16,
