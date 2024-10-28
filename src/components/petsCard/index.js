@@ -15,7 +15,7 @@ const PetCard = ({data, large, edit}) => {
   
     return (
       <TouchableOpacity
-        // onPress={() => navigation.navigate("", {id})}
+         onPress={() => navigation.navigate("PetDetail", {id})}
       >
         <View style={large ? styles.largeContainer : styles.container}>
             {edit ? 

@@ -20,6 +20,7 @@ import Conejo from "../../assets/conejo.png"
 import HorizontalPetsScroll from "../../components/horizontalPetsScroll";
 import HorizontalProtectorsScroll from "../../components/horizontalProtectorsScroll";
 import { getAllPets } from "../../helpers/helper";
+import { getPetById } from "../../helpers/helper";
 import { CategoryFilter } from "../../components/categoryFilter";
 import PetsGrid from "../../components/petsGrid";
 

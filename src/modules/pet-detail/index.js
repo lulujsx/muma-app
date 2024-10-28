@@ -11,19 +11,19 @@ const mapPin = require("./assets/map-pin.png");
 const screenWidth = Dimensions.get('window').width;
 
 
-const PetDetail = () => {
+const PetDetail = ({route}) => {
 	
   const [mascota, setMascota] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { id } = route.params;
 
-
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiODVjMDIzMC0xM2ZmLTQ4OWUtOGUyOC02ZmEwYjE3NzlhZDUiLCJ1bmlxdWVfbmFtZSI6ImZhY3VAbXVtYS5jb20iLCJuYmYiOjE3MzAxNDM1NzEsImV4cCI6MTczMDIyOTk3MSwiaWF0IjoxNzMwMTQzNTcxLCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.k69_YagRB99Z8X_B-N2_3RRPDPX-zJh0ayAQWoxgCAk';
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiY2U2Nzk2Ni0zM2MzLTRlMmUtYmY4OC0yYWM2NzhhMjI1MDciLCJ1bmlxdWVfbmFtZSI6InVzdWFyaW9AbXVtYS5jb20iLCJuYmYiOjE3MzAxNDUxMjUsImV4cCI6MTczMDIzMTUyNSwiaWF0IjoxNzMwMTQ1MTI1LCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.rOF25LQ8Rbp4M1lNCiVbj7YFUTqYNQ7c7lijaEEEjQE"
 
   useEffect(() => {
     const fetchMascota = async () => {
       try {
-        const response = await axios.get(`http://192.168.0.13:8081/api/Mascotas/2`, {
+        const response = await axios.get(`http://localhost:8081/api/Mascotas/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
