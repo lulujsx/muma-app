@@ -5,7 +5,7 @@ const HomeMascotero = () => {
 		<>
 			<SafeAreaView />
 			<View>
-				<Text>Hello world</Text>
+				<Text>Hello world mother</Text>
 			</View>
 		</>
 	);
