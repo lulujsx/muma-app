@@ -1,7 +1,7 @@
 import axios from  "axios";
 
 const apiUrl = "http://localhost:8081/api"
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzMjc3NmQ0My1kNDQ0LTQ1ZWYtYTA0Ny1mNzdkNzcyMTNiMDMiLCJ1bmlxdWVfbmFtZSI6Imx1YW5hQG11bWEuY29tIiwibmJmIjoxNzMwMTQwOTgwLCJleHAiOjE3MzAyMjczODAsImlhdCI6MTczMDE0MDk4MCwiaXNzIjoiTVVNQS1BUEkiLCJhdWQiOiJNVU1BLUF1ZGllbmNlIn0.wkmMW3AhLKNpuizsRqN-n6Un4zqEf0dNvLiXU-WkC7I"
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiY2U2Nzk2Ni0zM2MzLTRlMmUtYmY4OC0yYWM2NzhhMjI1MDciLCJ1bmlxdWVfbmFtZSI6InVzdWFyaW9AbXVtYS5jb20iLCJuYmYiOjE3MzAxNDUxMjUsImV4cCI6MTczMDIzMTUyNSwiaWF0IjoxNzMwMTQ1MTI1LCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.rOF25LQ8Rbp4M1lNCiVbj7YFUTqYNQ7c7lijaEEEjQE"
 export const getAllPets = async () => {
     const response = await axios.get(`${apiUrl}/Mascotas`,{
         headers: {

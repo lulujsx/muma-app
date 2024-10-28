@@ -1,38 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import 'react-native-gesture-handler';  
+import 'react-native-gesture-handler';
 import HomeMascotero from './src/modules/home-mascotero';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import UserSelect from './src/modules/seleccion-usuario';
+import ProtectiveRegister from './src/modules/registro-protectora';
+import MascoteroRegister from './src/modules/registro-mascotero';
+import Login from './src/modules/login';
 
 
-const StackNav = () => {
-  const Stack = createNativeStackNavigator();
-  return(
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeMascotero} />
-      </Stack.Navigator>
-  );
-}
 
 export default function App() {
-  const Drawer = createDrawerNavigator();
+  //const Drawer = createDrawerNavigator();
+  const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={HomeMascotero}/>
-      </Drawer.Navigator>
+      <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="MascoteroRegister" component={MascoteroRegister} />
+      <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister} />
+      <Stack.Screen name="UserSelect" component={UserSelect} />
+      <Stack.Screen name="Home" component={HomeMascotero} />
+      </Stack.Navigator>
     </NavigationContainer>
 
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
