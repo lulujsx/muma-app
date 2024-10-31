@@ -10,11 +10,12 @@ const mapPin = require("./assets/map-pin.png");
 const screenWidth = Dimensions.get('window').width;
 
 
-const PetDetail = () => {
+const PetDetail = ({route}) => {
 	
   const [mascota, setMascota] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { id } = route.params;
 
 
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkNjRjY2U2NC0xNzE5LTQwNWUtOWU0Zi02YjFhNDdkNzc5MjMiLCJ1bmlxdWVfbmFtZSI6ImZhY3VAbXVtYS5jb20iLCJuYmYiOjE3MzAzNzkyNTgsImV4cCI6MTczMDQ2NTY1OCwiaWF0IjoxNzMwMzc5MjU4LCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.ijYNYVJLoGbMJ8k0tgDqCoKenKODxZQ3dw5wgtehcGU';
@@ -22,7 +23,7 @@ const PetDetail = () => {
   useEffect(() => {
     const fetchMascota = async () => {
       try {
-        const response = await axios.get(`http://192.168.0.13:8081/api/Mascotas/2`, {
+        const response = await axios.get(`http://localhost:8081/api/Mascotas/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
