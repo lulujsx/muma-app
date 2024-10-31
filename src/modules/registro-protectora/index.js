@@ -90,7 +90,7 @@ axios.post('http://localhost:8081/api/Protectoras/registro', registerData)
   .then(response => {
     console.log('Registro exitoso', response.data);
 // Redirigir al componente ValidationRegister
-    navigation.navigate('/validation-register');
+    navigation.navigate('ValidationRegister');
     // Si el registro es exitoso, enviar el correo
     sendEmail(formData.email);
   })
