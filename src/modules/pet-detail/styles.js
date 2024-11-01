@@ -74,14 +74,16 @@ const styles = StyleSheet.create({
     },
     protectoraCard: {
       flexDirection: 'row',
-      justifyContent: 'space-between',
       alignItems: 'center',
       paddingVertical: 10,
       borderTopColor: '#e0e0e0',
     },
     protectoraCardItems: {
+      flex: 1,
       flexDirection: 'row',
       alignItems: 'center',
+      justifyContent: 'space-between',
+      
     },
     protectoraLabel: {
       fontSize: 12,
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
     adoptBtn: {
         alignItems: 'center',
         justifyContent: 'center',        
-        width: 328,
+        width: 'auto',
         height: 50,
         borderRadius: 8,
         padding: 6,

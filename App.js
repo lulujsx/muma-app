@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import UserSelect from './src/modules/seleccion-usuario';
 import ProtectiveRegister from './src/modules/registro-protectora';
+import ValidationRegister from './src/modules/validation-register';
 import MascoteroRegister from './src/modules/registro-mascotero';
 import PetDetail from './src/modules/pet-detail';
 import Login from './src/modules/login';
@@ -65,107 +66,4 @@ export default function App() {
 
 
 
-// function AppContent() {
-//   const idtiporegistro = useSelector((state) => state.user.usuario.idtiporegistro);
-
-//   return (
-//     <Drawer.Navigator
-//       drawerContent={(props) => <DrawerContent {...props} />}
-//       screenOptions={({ route }) => ({
-//         swipeEnabled: route.name === "Home", // Solo permite el gesto en la pantalla Home
-//       })}
-//     >
-//       <Drawer.Screen name="Login" component={Login} />
-//       <Drawer.Screen name="MascoteroRegister" component={MascoteroRegister} />
-//       <Drawer.Screen name="ProtectiveRegister" component={ProtectiveRegister} />
-//       <Drawer.Screen name="UserSelect" component={UserSelect} />
-//       <Drawer.Screen name="PetDetail" component={PetDetail} />
-//       <Drawer.Screen
-//         name="Home"
-//         component={idtiporegistro === 1 ? HomeMascotero : HomeProtectora}
-//       />
-//       <Drawer.Screen name="SearchResultsScreen" component={SearchResultsScreen} />
-//     </Drawer.Navigator>
-//   );
-// }
-
-// export default function App() {
-//   return (
-//     <Provider store={store}>
-//       <NavigationContainer>
-//         <AppContent />
-//       </NavigationContainer>
-//     </Provider>
-//   );
-// }
-
-//-------------------------------------------------------
-
-// export default function App() {
-
-//   const StackNav = () => {
-//     const Stack = createNativeStackNavigator();
-//     const navigation = useNavigation();
-//     return (
-//       <Stack.Navigator
-//         screenOptions={{
-//           statusBarColor: 'white',
-//           headerStyle: {
-//             backgroundColor: 'white',
-//           },
-//           headerTintColor: 'black',
-//           headerTitleAlign: 'center',
-//         }}>
-//         <Stack.Screen
-//           name="Home"
-//           component={HomeProtectora}
-//           options={{
-//             headerLeft: () => {
-//               return (
-//                 <Feather
-//                   name="menu"
-//                   onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-//                   size={24}
-//                   color="black"
-//                 />
-//               );
-//             },
-//           }}
-//         />
-//         <Stack.Screen name="Profile" component={HomeProtectora} />
-//         <Stack.Screen
-//           name="User"
-//           component={HomeProtectora}
-//           options={{
-//             headerShown: true,
-//           }}
-//         />
-//       </Stack.Navigator>
-//     );
-//   };
-  
-//   const DrawerNav = () => {
-//     const Drawer = createDrawerNavigator();
-//     return (
-//       <Drawer.Navigator
-//         drawerContent={props => <DrawerContent {...props} />}
-//         screenOptions={{
-//           headerShown: false,
-//         }}>
-//         <Drawer.Screen name="Home" component={StackNav} />
-//       </Drawer.Navigator>
-//     );
-//   };
-  
-
-//   return (
-//     <Provider store={store}>
-//       <NavigationContainer>
-
-//          <DrawerNav/> 
-//       </NavigationContainer>
-//     </Provider>
-
-//   );
-// }
   

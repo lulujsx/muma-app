@@ -29,6 +29,7 @@ function Login() {
 
   const rememberLogin = async (token) => {
     //saveLogin(token);
+    
     if (rememberMe) {
       await AsyncStorage.setItem('authToken', token);
     } else {

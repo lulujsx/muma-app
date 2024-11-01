@@ -4,7 +4,6 @@ import styles from './styles'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ModalProtectora from './protectora-modal/modal';
-
 const protectoraImg = require("./assets/protectoraIImg.png");
 const mapPin = require("./assets/map-pin.png");
 
@@ -18,7 +17,8 @@ const PetDetail = ({route}) => {
   const [error, setError] = useState('');
   const { id } = route.params;
 
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiY2U2Nzk2Ni0zM2MzLTRlMmUtYmY4OC0yYWM2NzhhMjI1MDciLCJ1bmlxdWVfbmFtZSI6InVzdWFyaW9AbXVtYS5jb20iLCJuYmYiOjE3MzAxNDUxMjUsImV4cCI6MTczMDIzMTUyNSwiaWF0IjoxNzMwMTQ1MTI1LCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.rOF25LQ8Rbp4M1lNCiVbj7YFUTqYNQ7c7lijaEEEjQE"
+
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkNjRjY2U2NC0xNzE5LTQwNWUtOWU0Zi02YjFhNDdkNzc5MjMiLCJ1bmlxdWVfbmFtZSI6ImZhY3VAbXVtYS5jb20iLCJuYmYiOjE3MzAzNzkyNTgsImV4cCI6MTczMDQ2NTY1OCwiaWF0IjoxNzMwMzc5MjU4LCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.ijYNYVJLoGbMJ8k0tgDqCoKenKODxZQ3dw5wgtehcGU';
 
   useEffect(() => {
     const fetchMascota = async () => {
@@ -94,17 +94,16 @@ const PetDetail = ({route}) => {
     </View>
 
     <View style={styles.protectoraCard}>
+    <Image source={protectoraImg} style={styles.icon} />
       <View style={styles.protectoraCardItems}>
-        <Image source={protectoraImg} style={styles.icon} />
         <View>
           <Text style={styles.protectoraLabel}>Protectora</Text>
           <Text style={styles.protectoraName}>{mascota.protectora.nombre}</Text>
         </View>
-          <ModalProtectora></ModalProtectora>
+        <View>
+        <ModalProtectora></ModalProtectora>
+        </View>   
       </View>
-      <TouchableOpacity style={styles.dataBtn}>
-        <Image source={{ uri: 'a' }} style={styles.icon} />
-      </TouchableOpacity>
     </View>
 
     <Text style={styles.description}>{mascota.descripcion}</Text>
@@ -117,5 +116,7 @@ const PetDetail = ({route}) => {
     
   );
 };
+
+
 
 export default PetDetail;

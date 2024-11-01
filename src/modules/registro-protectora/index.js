@@ -8,29 +8,104 @@ import {
   Button,
   ScrollView,
   Picker,
+  Alert
 } from "react-native";
+import axios from "axios";
 import styles from "./ProtectiveRegisterStyles";
+import { useNavigation } from '@react-navigation/native';
 
 const ProtectiveRegister = () => {
   const [formData, setFormData] = useState({
-    nombreProtectora: "",
-    descripcion: "",
-    email: "",
-    password: "",
-    confirmarPassword: "",
-    provincia: "",
-    ciudad: "",
-    calle: "",
-    numero: "",
-    piso: "",
-    departamento: "",
-    sitioWeb: "",
-    instagram: "",
-    facebook: "",
+    email: '',
+    password: '',
+    confirmarPassword: '', 
+    nombreUsuario: '',
+    apellidoUsuario: '',
+    nombreProtectora: '',
+    descripcion: '',
+    sitioWeb: '',
+    instagram: '',
+    facebook: '',
+    cantidadDeMascotas: 0,
+    direccion: {
+      idCiudad: '',
+      calle: '',
+      numero: '',
+      piso: '',
+      departamento: '',
+      provincia: {
+        id: '',
+        nombre: ''
+      },
+      ciudad: {
+        id: '',
+        nombre: '',
+        idProvincia: ''
+      }
+    }
   });
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigation = useNavigation();
 
   const handleChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    // Construir el objeto registerData desde formData
+    const registerData = {
+      email: formData.email || "",
+      password: formData.password || "",
+      nombreUsuario: formData.nombreUsuario || "vacío",
+      apellidoUsuario: formData.apellidoUsuario || "vacío",
+      nombreProtectora: formData.nombreProtectora || "",
+      descripcion: formData.descripcion || "",
+      cantidadDeMascotas: formData.cantidadDeMascotas || 1,
+      direccion: {
+        idCiudad: formData.ciudad.idCiudad || 1 ,
+        calle: formData.calle || "",
+        numero: formData.numero || "",
+        piso: formData.piso || "",
+        departamento: formData.departamento || "",
+        ciudad: {
+          id: formData.ciudad.id || 1,
+          nombre: formData.ciudad.nombre || "string",
+          idProvincia: formData.ciudad.idProvincia || 1
+        },
+        provincia: {
+          id: formData.provincia.id || 1,
+          nombre: formData.provincia.nombre || "string"
+        }
+      },
+      sitioWeb: formData.sitioWeb || "vacío",
+      instagram: formData.instagram || "vacío",
+      facebook: formData.facebook || "vacío"
+    };
+    console.log("Datos enviados:", registerData);
+
+
+axios.post('http://localhost:8081/api/Protectoras/registro', registerData)
+  .then(response => {
+    console.log('Registro exitoso', response.data);
+// Redirigir al componente ValidationRegister
+    navigation.navigate('ValidationRegister');
+    // Si el registro es exitoso, enviar el correo
+    sendEmail(formData.email);
+  })
+  .catch(error => {
+    console.error('Axion.post:Error al registrar', error);
+
+    // Verificar si el error es por un correo duplicado
+    if (error.response && error.response.status === 401) {  // Suponiendo que el backend devuelve 401 para correo duplicado
+      // Redirigir al componente EmailError
+      navigation.navigate('/email-error');  // Asegúrate de tener la ruta configurada en tu sistema de rutas
+    } else {
+      // Manejar otros posibles errores
+      setErrorMessage('Ocurrió un error inesperado. Intenta nuevamente.');
+    }
+  })
   };
 
   return (
@@ -186,7 +261,7 @@ const ProtectiveRegister = () => {
         </View>
 
         {/* Botón de Enviar */}
-        <TouchableOpacity style={styles.submitButton}>
+        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
           <Text style={styles.submitButtonText}>Registrar</Text>
         </TouchableOpacity>
       </View>
