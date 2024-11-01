@@ -5,14 +5,13 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  Button,
   ScrollView,
   Picker,
-  Alert
 } from "react-native";
 import axios from "axios";
 import styles from "./ProtectiveRegisterStyles";
 import { useNavigation } from '@react-navigation/native';
+import emailjs from 'emailjs-com';
 
 const ProtectiveRegister = () => {
   const [formData, setFormData] = useState({
@@ -51,6 +50,24 @@ const ProtectiveRegister = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const sendEmail = (email) => {
+    const templateParams = {
+      to_name: formData.nombreUsuario,  // Nombre del usuario que registró
+      to_email: email,              // Email del usuario registrado
+      message: `Gracias por registrarte en nuestra plataforma, ${formData.nombreUsuario}. Tu registro ha sido exitoso.`
+    };
+  
+    emailjs.send('service_ex9pvdp', 'template_h458cry', templateParams, 'Q1r6WCD0oCWqh8uEG')
+      .then((response) => {
+        console.log('Correo enviado con éxito:', response.status, response.text);
+      })
+      .catch((error) => {
+        console.error('sendEmail:Error al enviar el correo:', error);
+      });
+  };
+  useEffect(() => {
+    emailjs.init("Q1r6WCD0oCWqh8uEG");
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
   
@@ -98,9 +115,9 @@ axios.post('http://localhost:8081/api/Protectoras/registro', registerData)
     console.error('Axion.post:Error al registrar', error);
 
     // Verificar si el error es por un correo duplicado
-    if (error.response && error.response.status === 401) {  // Suponiendo que el backend devuelve 401 para correo duplicado
+    if (error.response && error.response.status === 400) {  // Suponiendo que el backend devuelve 401 para correo duplicado
       // Redirigir al componente EmailError
-      navigation.navigate('/email-error');  // Asegúrate de tener la ruta configurada en tu sistema de rutas
+      navigation.navigate('EmailError');  // Asegúrate de tener la ruta configurada en tu sistema de rutas
     } else {
       // Manejar otros posibles errores
       setErrorMessage('Ocurrió un error inesperado. Intenta nuevamente.');

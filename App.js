@@ -12,6 +12,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import UserSelect from './src/modules/seleccion-usuario';
 import ProtectiveRegister from './src/modules/registro-protectora';
+import EmailError from './src/modules/email-error';
 import ValidationRegister from './src/modules/validation-register';
 import MascoteroRegister from './src/modules/registro-mascotero';
 import PetDetail from './src/modules/pet-detail';
@@ -19,8 +20,6 @@ import Login from './src/modules/login';
 import SearchResultsScreen from './src/modules/search-results';
 import HomeProtectora from './src/modules/home-protectora';
 import DrawerContent from './DrawerContent';
-import {useEffect} from 'react';
-import { Feather } from '@expo/vector-icons';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -45,6 +44,8 @@ function MainStack() {
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Stack.Screen name="MascoteroRegister" component={MascoteroRegister}  options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister}  options={{ headerBackTitle: 'Back' }} />
+      <Stack.Screen name="ValidationRegister" component={ValidationRegister} options={{ headerBackTitle: 'Back' }} />
+      <Stack.Screen name="EmailError" component={EmailError} options={{ headerBackTitle: 'Back' }}/>
       <Stack.Screen name="UserSelect" component={UserSelect}  options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="PetDetail" component={PetDetail} options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="SearchResultsScreen" component={SearchResultsScreen} options={{ headerBackTitle: 'Back' }} />
