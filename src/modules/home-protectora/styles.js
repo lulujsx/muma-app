@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 	container: {
 		paddingLeft: 20,
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        paddingBottom: 100
 	},
     category: {
         flexDirection: "row",

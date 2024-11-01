@@ -1,5 +1,6 @@
 import {FlatList, Text, View} from 'react-native';
 import ProtectorsCard from '../protectorsCard'
+import ModalProtectora from '../modalProtector/modal';
 
 
 const HorizontalProtectorsScroll = ({data}) => {

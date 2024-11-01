@@ -20,6 +20,7 @@ import Login from './src/modules/login';
 import SearchResultsScreen from './src/modules/search-results';
 import HomeProtectora from './src/modules/home-protectora';
 import DrawerContent from './DrawerContent';
+import AddPet from './src/modules/add-pet';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -51,6 +52,7 @@ function MainStack() {
       <Stack.Screen name="SearchResultsScreen" component={SearchResultsScreen} options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="Profile" component={Profile} options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="Home" component={HomeDrawer}  options={{ headerShown: false }}/>
+      <Stack.Screen name="AddPet" component={AddPet} options={{ headerBackTitle: 'Back' }}/>
     </Stack.Navigator>
   );
 }

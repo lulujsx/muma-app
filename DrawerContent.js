@@ -11,7 +11,9 @@ import { logout } from './src/redux/slices/user';
 
 const DrawerList = [
   {icon: 'home', label: 'Home', navigateTo: 'Home'},
+  {icon: 'plus-circle', label: 'Añadir Mascota', navigateTo: 'AddPet'},
   {icon: 'user', label: 'Perfil', navigateTo: 'Profile'},
+
 ];
 
 const DrawerLayout = ({icon, label, navigateTo}) => {

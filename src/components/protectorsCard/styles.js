@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   protectorTitle: {
     marginTop: 10,
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     
   },
   description: {
-    fontSize: 8,
+    fontSize: 12,
     color: '#B1B1B1',
     textAlign: 'center',
     paddingHorizontal: 10,
