@@ -21,6 +21,7 @@ import SearchResultsScreen from './src/modules/search-results';
 import HomeProtectora from './src/modules/home-protectora';
 import DrawerContent from './DrawerContent';
 import AddPet from './src/modules/add-pet';
+import { View,Image } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -29,7 +30,27 @@ function HomeDrawer() {
   const idtiporegistro = useSelector((state) => state.user.usuario.idTipoRegistro);
 
   return (
-    <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+    <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}
+      screenOptions={{
+        headerShown: true,
+        headerTitle: "",
+        headerRight: () => (
+          <View style={{ marginLeft: 10 }}>
+            <Image
+              source={{
+                uri: 'https://i.imgur.com/SItwxMY.jpeg',
+              }}
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+                marginRight: 15
+              }}
+            />
+          </View>
+        ),
+      }}
+    >
       <Drawer.Screen
         name="Home"
         component={idtiporegistro === 1 ? HomeProtectora : HomeMascotero}
@@ -41,7 +62,18 @@ function HomeDrawer() {
 
 function MainStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        statusBarColor: "white",
+        headerStyle: {
+          backgroundColor: "white"
+        },
+        headerTitle: "",
+        headerTitleAlign: "center"
+
+      }}
+    
+    >
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Stack.Screen name="MascoteroRegister" component={MascoteroRegister}  options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister}  options={{ headerBackTitle: 'Back' }} />

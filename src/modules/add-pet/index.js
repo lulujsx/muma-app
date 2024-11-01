@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import styles from './styles';
 import { registerPet } from '../../helpers/helper';
-import { ScrollView } from 'react-native-web';
+import { ScrollView, View } from 'react-native-web';
 const AddPet = () => {
     return (
         <View>
