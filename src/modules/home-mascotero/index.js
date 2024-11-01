@@ -140,6 +140,7 @@ const HomeMascotero = () => {
 		filterItems();
     // console.log("usuario:",user)
     console.log("nombre de usuario:",user.nombre)
+    console.log("tipo de usuario:",user)
     console.log("token:",token)
 	}, [pets,selectedFilters]);
 	

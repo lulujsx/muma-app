@@ -7,7 +7,8 @@ const initialState = {
     id: null,
     nombre: '',
     apellido: '',
-    email: ''
+    email: '',
+    idTipoRegistro: null
   }
 };
 

@@ -25,7 +25,7 @@ const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function HomeDrawer() {
-  const idtiporegistro = useSelector((state) => state.user.usuario.id);
+  const idtiporegistro = useSelector((state) => state.user.usuario.idTipoRegistro);
 
   return (
     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
