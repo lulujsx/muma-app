@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import UserSelect from './src/modules/seleccion-usuario';
 import ProtectiveRegister from './src/modules/registro-protectora';
+import EmailError from './src/modules/email-error';
 import ValidationRegister from './src/modules/validation-register';
 import MascoteroRegister from './src/modules/registro-mascotero';
 import PetDetail from './src/modules/pet-detail';
@@ -21,6 +22,7 @@ export default function App() {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="MascoteroRegister" component={MascoteroRegister} />
       <Stack.Screen name="ValidationRegister" component={ValidationRegister} />
+      <Stack.Screen name="EmailError" component={EmailError} />
       <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister} />
       <Stack.Screen name="UserSelect" component={UserSelect} />
       <Stack.Screen name="PetDetail" component={PetDetail} />
