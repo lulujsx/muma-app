@@ -3,11 +3,10 @@ import Swiper from 'react-native-swiper';
 import styles from './styles'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ModalProtectora from './protectora-modal/modal';
-const protectoraImg = require("./assets/protectoraIImg.png");
-const mapPin = require("./assets/map-pin.png");
-
-const screenWidth = Dimensions.get('window').width;
+import ModalProtectora from '../../components/modalProtector/modal';
+import { useSelector } from 'react-redux';
+const protectoraImg = require("../../assets/protectoraIImg.png");
+const mapPin = require("../../assets/map-pin.png");
 
 
 const PetDetail = ({route}) => {
@@ -16,9 +15,8 @@ const PetDetail = ({route}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { id } = route.params;
+  const token = useSelector((state) => state.user.token);
 
-
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkNjRjY2U2NC0xNzE5LTQwNWUtOWU0Zi02YjFhNDdkNzc5MjMiLCJ1bmlxdWVfbmFtZSI6ImZhY3VAbXVtYS5jb20iLCJuYmYiOjE3MzAzNzkyNTgsImV4cCI6MTczMDQ2NTY1OCwiaWF0IjoxNzMwMzc5MjU4LCJpc3MiOiJNVU1BLUFQSSIsImF1ZCI6Ik1VTUEtQXVkaWVuY2UifQ.ijYNYVJLoGbMJ8k0tgDqCoKenKODxZQ3dw5wgtehcGU';
 
   useEffect(() => {
     const fetchMascota = async () => {
@@ -30,10 +28,12 @@ const PetDetail = ({route}) => {
         });
 
         setMascota(response.data);
+        console.log(response.data)
       } catch (err) {
         setError('Error al cargar los datos de la mascota');
       } finally {
         setLoading(false);
+       
       }
     };
 
@@ -52,7 +52,7 @@ const PetDetail = ({route}) => {
   
   return (
     <ScrollView >
-        <Swiper style={{ height: 400 }} showsButtons={false}>
+        <Swiper style={{ height: 400 }} showsButtons={false} loop={true} autoplayTimeout={3}>
         {mascota.fotos.map((foto, index) => (
             <View key={index} style={{ flex: 1 }}>
                 <Image 
@@ -62,7 +62,7 @@ const PetDetail = ({route}) => {
                 />
             </View>
         ))}
-    </Swiper>
+      </Swiper>
       <View style={styles.card}>
       <View style={styles.nameContainer}>
       <View style={{gap: 5}}>

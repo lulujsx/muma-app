@@ -26,13 +26,13 @@ const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function HomeDrawer() {
-  const idtiporegistro = useSelector((state) => state.user.usuario.idtiporegistro);
+  const idtiporegistro = useSelector((state) => state.user.usuario.id);
 
   return (
     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
       <Drawer.Screen
         name="Home"
-        component={idtiporegistro === 1 ? HomeMascotero : HomeProtectora}
+        component={idtiporegistro === 1 ? HomeProtectora : HomeMascotero}
         
       />
     </Drawer.Navigator>
@@ -43,9 +43,9 @@ function MainStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      <Stack.Screen name="MascoteroRegister" component={MascoteroRegister} options={{ headerShown: false }} />
-      <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister} options={{ headerShown: false }} />
-      <Stack.Screen name="UserSelect" component={UserSelect} options={{ headerShown: false }} />
+      <Stack.Screen name="MascoteroRegister" component={MascoteroRegister}  options={{ headerBackTitle: 'Back' }} />
+      <Stack.Screen name="ProtectiveRegister" component={ProtectiveRegister}  options={{ headerBackTitle: 'Back' }} />
+      <Stack.Screen name="UserSelect" component={UserSelect}  options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="PetDetail" component={PetDetail} options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="SearchResultsScreen" component={SearchResultsScreen} options={{ headerBackTitle: 'Back' }} />
       <Stack.Screen name="Profile" component={Profile} options={{ headerBackTitle: 'Back' }} />
@@ -63,7 +63,3 @@ export default function App() {
     </Provider>
   );
 }
-
-
-
-  

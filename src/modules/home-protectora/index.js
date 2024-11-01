@@ -1,4 +1,4 @@
-import { View, SafeAreaView, Text,ScrollView } from "react-native";
+import { View, SafeAreaView, Text,ScrollView, Pressable } from "react-native";
 import {styles} from './styles';
 import { getAllPets } from "../../helpers/helper";
 import PetSearch from "../../components/petsSearch";
@@ -11,6 +11,7 @@ import Hamster from "../../assets/hamster.png"
 import Conejo from "../../assets/conejo.png"
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { Feather } from "@expo/vector-icons";
 
 const filtros = [
     {
@@ -132,7 +133,9 @@ const HomeProtectora = () => {
 				) : (
 					<PetsGrid data={filteredItems} />
 				)}
-				
+				<Pressable style={styles.buttonAdd}>
+					<Feather name="plus" size={30} color="white" />
+				</Pressable>	
 			</View>
 		</ScrollView>
 	);

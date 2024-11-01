@@ -3,9 +3,9 @@ import {Alert, Modal, StyleSheet, Text, Pressable, View, Image} from 'react-nati
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
 
-const protectoraImg = require("../assets/protectoraIImg.png");
+const protectoraImg = require("../../assets/protectoraIImg.png");
 
-const phoneIcon = require("../assets/phone.png");
+const phoneIcon = require("../../assets/phone.png");
 
 
 
@@ -70,9 +70,9 @@ const contactInfo = {
 };
 
 const contactIcons = {
-  telnum: require("../assets/phone.png"),
-  instagram: require("../assets/instagram.png"),
-  gmail: require("../assets/mail.png")
+  telnum: require("../../assets/phone.png"),
+  instagram: require("../../assets/instagram.png"),
+  gmail: require("../../assets/mail.png")
 };
 
 const styles = StyleSheet.create({
