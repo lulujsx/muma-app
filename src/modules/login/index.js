@@ -4,10 +4,12 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../../redux/slices/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-/* import { AuthContext } from '../../context/AuthContext'; */
 import styles from './LoginStyles';
-import mumaLogo from '../../../assets/Icons/isologo.svg';
+import mumaLogo from '../../assets/Icons/isologo.svg'
+//'../../../assets/Icons/isologo.svg';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string('Debe ingresar su usuario')
@@ -18,7 +20,7 @@ const validationSchema = Yup.object().shape({
 
 function Login() {
   const [rememberMe, setRememberMe] = useState(false);
-  /* const { saveLogin } = useContext(AuthContext); */
+  const dispatch = useDispatch();
   const navigation = useNavigation();
 
   const handleRememberMe = () => {
@@ -26,11 +28,11 @@ function Login() {
   };
 
   const rememberLogin = async (token) => {
-    saveLogin(token);
+    //saveLogin(token);
     if (rememberMe) {
       await AsyncStorage.setItem('authToken', token);
     } else {
-      await AsyncStorage.setItem('authToken', token); // Puedes usar AsyncStorage para ambas opciones si deseas.
+      await AsyncStorage.setItem('authToken', token); 
     }
   };
 
@@ -40,7 +42,8 @@ function Login() {
         user: values.email,
         password: values.password,
       });
-      const { token } = response.data;
+      const { token,usuario } = response.data;
+      dispatch(setUserData({ token, usuario }));
       rememberLogin(token);
       navigation.navigate("Home");
     } catch (error) {

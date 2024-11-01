@@ -11,7 +11,6 @@ const PetCard = ({data, large, edit}) => {
   
     const navigation = useNavigation()
     const {id, nombre, fotos, sexo, ciudad} = data;
-    //const {id, nombre, foto, sexo, ciudad} = data;
   
     return (
       <TouchableOpacity

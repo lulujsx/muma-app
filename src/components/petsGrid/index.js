@@ -8,7 +8,7 @@ const PetsGrid = ({data}) => {
       data={data}
       renderItem={({ item }) => (
         <View style={styles.cardContainer}>
-          <PetsCard data={item} />
+          <PetsCard data={item} edit={true}/>
         </View>
       )}
       // keyExtractor={(item) => item.id.toString()}

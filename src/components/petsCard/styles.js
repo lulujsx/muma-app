@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   largeContainer: {
     height: "auto",
-    width: 290,
+    width: 200,
     borderRadius: 8,
     shadowColor: '#19214A',
     shadowOffset: { width: 0, height: 4 },
@@ -28,9 +28,12 @@ const styles = StyleSheet.create({
   },
   largeAnimalImage: {
     width: '100%',
-    height: 290,
+    height: 200,
     resizeMode: 'cover',
-    borderRadius: 8,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 35,
   },
   animalImage: {
     width: '100%',
@@ -102,6 +105,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 1,
     top: 5,
+    zIndex: 1,          // Añadimos zIndex para asegurar la superposición
+    elevation: 10,
   },
   cardButtonImage: {
     height: 50,
