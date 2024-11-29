@@ -1,5 +1,5 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createSlice } from '@reduxjs/toolkit';
-
 
 const initialState = {
   token: '',
@@ -7,7 +7,8 @@ const initialState = {
     id: null,
     nombre: '',
     apellido: '',
-    email: ''
+    email: '',
+    idTipoRegistro: null
   }
 };
 
@@ -31,6 +32,11 @@ const userSlice = createSlice({
     }
   }
 });
+
+export const logout = () => async (dispatch) => {
+  dispatch(clearUserData());
+  await AsyncStorage.removeItem('authToken');
+};
 
 export const { setUserData, clearUserData } = userSlice.actions;
 
